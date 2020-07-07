@@ -35,6 +35,7 @@ would cross over into the Python code. The exceptions come in with the replaceme
 Installation can be done in a couple of ways. If you want use virtual environment
  
  ## Option 1 
+ 
  - Using pip   
  
 ```console
@@ -47,21 +48,14 @@ Create a folder for your "venv", go to the directory and execute the following c
  $ python3 -m venv venv
 ```
 
-Upgrade your PIP
+Upgrade, Activate PIP and Install 
  
 ```console
 $ python3 -m pip install --upgrade pip
-```
-
-Activate your venv
-
-```console
 $ source venv/bin/activate
+$ pip3 install py3webfuzz
 ```
 
-```console
-$  pip3 install py3webfuzz
-```
 
 You should be able to go. 
 

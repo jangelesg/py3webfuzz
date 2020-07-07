@@ -36,7 +36,6 @@ try:
 except FileNotFoundError:
     long_description = long_description
 
-
 classifiers = [
     "Environment :: Web Environment",
     "Intended Audience :: Information Technology",
@@ -77,7 +76,7 @@ setup(
     license="GPLv3",
     description="A Python3 module to assist in fuzzing web applications",
     long_description=long_description,
-    long_description_content_type="text/x-rst",
+    long_description_content_type="text/markdown",
     #package_dir=package_dir,
     #packages=find_packages(exclude=("test",)),
     include_package_data=True,
