@@ -6,7 +6,7 @@
 
 ###
 Python3 Module Compatible  
-![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)
+![Awesome](https://github.com/jangelesg/py3webfuzz/blob/master/py3webfuzz/info/python.svg)
 
 ## Author
 - Jonathan Angeles @ex0day
