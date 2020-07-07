@@ -22,7 +22,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import urllib
+import urllib.parse
 import hashlib
 import base64
 import html
@@ -37,7 +37,11 @@ from xml.sax.saxutils import escape
 
 
 def url_encode(encvalue: str):
-    """ URL encode the specifed value. Example Format: Hello%20World """
+    """ URL encode the specifed value. Example Format: Hello%20World
+    The quote() function accepts a named parameter called safe whose default value is /. If you want to encode / character as well,
+    then you can do so by supplying an empty string in the safe parameter like this-
+    """
+
     try:
         encoded_value = urllib.parse.quote(encvalue)
     except Exception as e:
@@ -46,7 +50,7 @@ def url_encode(encvalue: str):
         return encoded_value
 
 
-def full_url_encode(encvalue):
+def full_hex_url_encode(encvalue):
     """ Full URL Hex encode the specified value.
     Example Format: %48%65%6c%6c%6f%20%57%6f%72%6c%64 """
 
@@ -183,7 +187,7 @@ def url_decode(decvalue: str):
     return returnval
 
 
-def fullurl_decode(decvalue: str):
+def full_hex_url_decode(decvalue: str):
     """ Full URL decode the specified value.
     Example Format: %48%65%6c%6c%6f%20%57%6f%72%6c%64 """
     splithex = decvalue.split("%")
