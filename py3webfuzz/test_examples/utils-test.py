@@ -12,4 +12,4 @@ if __name__ == "__main__":
 
     res = utils.make_request(location, headers=headers, method="get")
 
-    print(res.get("status_code"))
+    print(res)

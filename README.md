@@ -82,8 +82,9 @@ Uploading this module to the Python Package Index. At that point you should be a
  $ easy_install py3webfuzz
 ```
 ## Use in your Code
-- Some test files can be found within info sub folder
+- Some test cases can be found within info sub folder
 ```console
+# Accessing SQLi values and encode them for further use 
 # Import Library
 from py3webfuzz import fuzzdb
 from py3webfuzz import utils, encoderFuncs
@@ -94,6 +95,23 @@ for index, payload in enumerate(sqli_detect_payload.Generic_SQLI):
     print(f"Payload: {index} Value: {payload}")
     # Using encoderFuncs you can get different handy encodings to develop exploits
     print(f"SQLi Char Encode: {encoderFuncs.sqlchar_encode(payload)}")
+```
+
+```console
+# Send HTTP request to your target
+# Import Library
+from py3webfuzz import utils
+# Custome your target and Headers
+location = "http://127.0.0.1:8080/WebGoat/start.mvc#lesson/WebGoatIntroduction.lesson"
+    headers = {"Host": "ssl.scroogle.org", "User-Agent": \
+               "Mozilla/4.0 (compatible; MSIE 4.01; AOL 4.0; Mac_68K)",
+               "Content-Type": "application/x-www-form-urlencoded"}
+# at this point you have a dic object with all the elements for your pentest
+# "headers": response.headers, "content": response.content, "status_code": response.status_code,
+# 'json': response.json, "text": response.text, "time": f"Total in seconds: {time}"
+res = utils.make_request(location, headers=headers, method="get")
+# print the response 
+print(res)
 ```
 ## Demo
 ![](https://github.com/jangelesg/Py3webfuzz/blob/master/py3webfuzz/info/sqli-code-test.gif)
