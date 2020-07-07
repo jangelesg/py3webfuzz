@@ -26,6 +26,7 @@ Effort was made to match the names up similarly to the folders and values from t
 sometimes make for some ugly looking namespaces. This balance was struck so that familiarity with the fuzzdb project
 would cross over into the Python code. The exceptions come in with the replacement of hyphens with underscores.
 """
+
 here = os.path.abspath(os.path.dirname(__file__))
 # Import the README and use it as the long-description.
 # Note: this will only work if 'README.md' is present in your MANIFEST.in file!
@@ -33,7 +34,7 @@ try:
     with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
         long_description = '\n' + f.read()
 except FileNotFoundError:
-    long_description = long_description_
+    long_description = long_description
 
 
 classifiers = [
@@ -76,6 +77,7 @@ setup(
     license="GPLv3",
     description="A Python3 module to assist in fuzzing web applications",
     long_description=long_description,
+    long_description_content_type="text/x-rst",
     #package_dir=package_dir,
     #packages=find_packages(exclude=("test",)),
     include_package_data=True,

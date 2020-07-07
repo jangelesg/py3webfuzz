@@ -36,32 +36,40 @@ Installation can be done in a couple of ways. If you want use virtual environmen
  
  ## Option 1 
  - Using pip   
+ 
 ```console
 $ sudo apt-get install python3-venv
 ```
+
 Create a folder for your "venv", go to the directory and execute the following command
 
 ```console
  $ python3 -m venv venv
 ```
-Upgrade your PIP 
+
+Upgrade your PIP
+ 
 ```console
 $ python3 -m pip install --upgrade pip
 ```
+
 Activate your venv
+
 ```console
 $ source venv/bin/activate
 ```
 
 ```console
-$  pip3 install py3webfuzz==0.1.rcN
+$  pip3 install py3webfuzz
 ```
+
 You should be able to go. 
 
  ## Option 2 
 - Using Python setuptools http://pypi.python.org/pypi/setuptools
 
 You can run the supplied setup.py with the install command
+
 ```console
  $  setup.py install
 ```
@@ -71,18 +79,22 @@ You can also use easy_install if that's what you do to manage your installed pac
 ```console
  $ easy_install py3webfuzz_VERSION.tar.gz
 ```
+
 You can also point to the location where the tar.gz lives on the web
 
 ```console
  $ easy_install URL_package
 ```
+
 Uploading this module to the Python Package Index. At that point you should be able to just type
 
 ```console
  $ easy_install py3webfuzz
 ```
+
 ## Use in your Code
 - Some test cases can be found within info sub folder
+
 ```console
 # Accessing SQLi values and encode them for further use 
 # Import Library
@@ -113,6 +125,7 @@ res = utils.make_request(location, headers=headers, method="get")
 # print the response 
 print(res)
 ```
+
 ## Demo
 ![](https://github.com/jangelesg/Py3webfuzz/blob/master/py3webfuzz/info/sqli-code-test.gif)
 ![](https://github.com/jangelesg/Py3webfuzz/blob/master/py3webfuzz/info/encode_functions.gif)
