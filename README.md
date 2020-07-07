@@ -1,5 +1,5 @@
 ###
-#  Py3webFuzz Version 
+#  Py3webFuzz  
 ![made--python](http://ForTheBadge.com/images/badges/made-with-python.svg) 
 
 # ';-- Python  Web Fuzzing module Library
@@ -103,7 +103,7 @@ for index, payload in enumerate(sqli_detect_payload.Generic_SQLI):
 ####
 FUTURE
 ####
-- Uploading this module to the Python Package Index. At that point you should be able to just type
+- Uploading this module to the Python Package Index. 
 - Integrate features, classes , methods and values for Mobile Pentest
 - Enhance the XSS, XXE,  techniques throw some new features (Any ideas are welcome)
 - Feature for Server-Side Template Injection

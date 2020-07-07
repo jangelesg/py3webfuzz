@@ -45,7 +45,8 @@ def make_request(url, method, **kwargs):
     This provides a convenience function for making requests. This interfaces with requests  which in turn interfaces
     with urllib3 and provides the ability to make GET, POST, PUT, PATCH and DELETE requests.
 
-    The return data from this function is headers, content, http status, and the timedelta from a successful request
+    The return data from this function is A DIC with HTTP Status Code, HTTP Headers, HTTP Content, JSON in case, Time,
+    HTTP TEXT Content, timedelta from a successful request
     """
 
     # Checks to ensure that HTTP methods are valid  and header values and postdata are in the appropriate format
@@ -58,8 +59,7 @@ def make_request(url, method, **kwargs):
 
     def manage_arguments():
         """This provides a convenience function to manage and select the necessary parameters for the request
-        Grab the HTTP Status Code, HTTP Headers, HTTP Content, JSON in case, Time, HTTP TEXT Content, response time
-        Return a dictionary whit those values """
+        """
 
         parameters = {"url": url}  # Creating parameters starting with the url
         parameters.update({"verify": False})  # DEFAULT SSL VERIFICATION DISABLE
