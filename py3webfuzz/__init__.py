@@ -1,4 +1,4 @@
-__version__ = "0.1.6"
+__version__ = "0.1.7"
 
 ___name__ = """ 
  :::====  :::===  :::  ===  === :::===  :::=======  :::===== :::  === :::===== :::=====
@@ -9,4 +9,8 @@ ___name__ = """
 
 __package__ = "py3webfuzz"
 
-from py3webfuzz import utils, encoderFuncs, fuzzdb, ___name__, __package__, __version__
+# Classes the user will have access through the package interface
+from py3webfuzz.fuzzdb import *
+from py3webfuzz.utils import *
+from py3webfuzz.encoderFuncs import *
+from py3webfuzz import ___name__, __package__, __version__

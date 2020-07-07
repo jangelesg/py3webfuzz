@@ -4,8 +4,7 @@
 '''
 if __name__ == "__main__":
     # Import Library
-    from py3webfuzz import fuzzdb
-    from py3webfuzz import utils, encoderFuncs
+    from py3webfuzz import fuzzdb, encoderFuncs
 
     # Instantiate a Class Object that give you access to a set of SQLi values
     sqli_detect_payload = fuzzdb.Attack.AttackPayloads.SQLi.Detect()
