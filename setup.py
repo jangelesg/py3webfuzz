@@ -62,7 +62,7 @@ setup(
     author="Jonathan Angeles",
     name="py3webfuzz",
     version=VERSION,
-    author_email="jagelesg@gangsecurity.com",
+    author_email="jangelesg@gangsecurity.com",
     url="https://github.com/jangelesg/py3webfuzz",
     download_url="https://github.com/jangelesg/py3webfuzz/archive/{0}.tar.gz".format(VERSION),
     license="GPLv3",
