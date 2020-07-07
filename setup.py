@@ -74,6 +74,6 @@ setup(
     classifiers=classifiers,
     install_requires=install_requires,
     platforms=["Linux", "Windows", "macOs"],
-    keywords='fuzz web applications'
+    keywords='fuzz pentest security'
 
 )
