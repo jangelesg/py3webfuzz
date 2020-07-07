@@ -1,5 +1,5 @@
 ###
-#  Py3webFuzz Version 1.0.0
+#  Py3webFuzz Version 
 ![made--python](http://ForTheBadge.com/images/badges/made-with-python.svg) 
 
 # ';-- Python  Web Fuzzing module Library

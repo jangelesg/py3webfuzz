@@ -11,7 +11,7 @@ except:
     )
     sys.exit(1)
 
-VERSION = "1.0.0"
+VERSION = "1.0.0a"
 
 long_description = """py3webfuzz is a Python3 module to assist in the identification of vulnerabilities in web applications, 
 Web Services through brute force and analysis methods. The module does this by providing common testing values, generators 
@@ -73,4 +73,5 @@ setup(
     include_package_data=True,
     classifiers=classifiers,
     install_requires=install_requires,
+    platforms=["Linux", "Windows", "macOs"]
 )
