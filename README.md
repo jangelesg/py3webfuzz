@@ -54,7 +54,7 @@ $ source venv/bin/activate
 ```
 
 ```console
-$  pip3 install py3webfuzz==0.1.0 
+$  pip3 install py3webfuzz==1.0.0
 ```
 You should be able to go. 
 
