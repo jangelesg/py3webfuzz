@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import io
-import sys, os
+import os
+import sys
 
 try:
     from setuptools import setup, find_packages
@@ -49,7 +50,6 @@ classifiers = [
 #package_dir = {"py3webfuzz": "py3webfuzz"}
 
 install_requires = [
-    "logging",
     "requests",
     "bs4",
     "datetime",
