@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-
-import sys
+import io
+import sys, os
 
 try:
     from setuptools import setup, find_packages
@@ -13,7 +13,7 @@ except:
 
 VERSION = "0.1.2"
 
-long_description = """py3webfuzz is a Python3 module to assist in the identification of vulnerabilities in web applications, 
+long_description_ = """py3webfuzz is a Python3 module to assist in the identification of vulnerabilities in web applications, 
 Web Services through brute force and analysis methods. The module does this by providing common testing values, generators 
 and other utilities that would be helpful when fuzzing web applications and API endpoints.
 
@@ -26,6 +26,15 @@ Effort was made to match the names up similarly to the folders and values from t
 sometimes make for some ugly looking namespaces. This balance was struck so that familiarity with the fuzzdb project
 would cross over into the Python code. The exceptions come in with the replacement of hyphens with underscores.
 """
+here = os.path.abspath(os.path.dirname(__file__))
+# Import the README and use it as the long-description.
+# Note: this will only work if 'README.md' is present in your MANIFEST.in file!
+try:
+    with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+        long_description = '\n' + f.read()
+except FileNotFoundError:
+    long_description = long_description_
+
 
 classifiers = [
     "Environment :: Web Environment",
