@@ -34,7 +34,8 @@ would cross over into the Python code. The exceptions come in with the replaceme
 #### INSTALLATION
 Installation can be done in a couple of ways. If you want use virtual environment
  
- ## Using Python setuptools http://pypi.python.org/pypi/setuptools
+ ## Using Python setuptools 
+ http://pypi.python.org/pypi/setuptools
 
 ```console
 $ git clone https://github.com/jangelesg/py3webfuzz.git
