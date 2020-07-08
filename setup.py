@@ -47,7 +47,7 @@ classifiers = [
     "Topic :: Security"
 ]
 
-#package_dir = {"py3webfuzz": "py3webfuzz"}
+# package_dir = {"": "py3webfuzz"}
 
 install_requires = [
     "requests",
@@ -56,6 +56,18 @@ install_requires = [
     "impacket",
     "urllib3"
 ]
+
+
+def package_files(directory):
+    paths = []
+    for (path, directories, filenames) in os.walk(directory):
+        for filename in filenames:
+            paths.append(os.path.join('..', path, filename))
+    return paths
+
+print(here+'/py3webfuzz/web')
+
+extra_files = package_files(here + '/py3webfuzz/web')
 
 setup(
     author="Jonathan Angeles",
@@ -68,9 +80,11 @@ setup(
     description="A Python3 module to assist in fuzzing web applications",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    #package_dir=package_dir,
-    #packages=find_packages(exclude=("test",)),
+    packages=['py3webfuzz', 'py3webfuzz.test_examples', 'py3webfuzz.info'],
+    # package_dir=package_dir,
+    # packages=find_packages(exclude=("test",)),
     include_package_data=True,
+    package_data={'': extra_files},
     classifiers=classifiers,
     install_requires=install_requires,
     platforms=["Linux", "Windows", "macOs"],
