@@ -62,6 +62,10 @@ You should be able to go.
  ## Option 2 
 - Using Python setuptools http://pypi.python.org/pypi/setuptools
 
+```console
+$ git clone https://github.com/jangelesg/py3webfuzz.git
+$ cd py3webfuzz/
+```
 You can run the supplied setup.py with the install command
 
 ```console
