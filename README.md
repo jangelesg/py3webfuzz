@@ -34,33 +34,8 @@ would cross over into the Python code. The exceptions come in with the replaceme
 #### INSTALLATION
 Installation can be done in a couple of ways. If you want use virtual environment
  
- ## Option 1 
- 
- - Using pip   
- 
-```console
-$ sudo apt-get install python3-venv
-```
-
-Create a folder for your "venv", go to the directory and execute the following command
-
-```console
- $ python3 -m venv venv
-```
-
-Upgrade, Activate PIP and Install 
- 
-```console
-$ python3 -m pip install --upgrade pip
-$ source venv/bin/activate
-$ pip3 install py3webfuzz
-```
-
-
-You should be able to go. 
-
- ## Option 2 
-- Using Python setuptools http://pypi.python.org/pypi/setuptools
+ ## Using Python setuptools 
+ http://pypi.python.org/pypi/setuptools
 
 ```console
 $ git clone https://github.com/jangelesg/py3webfuzz.git
@@ -84,11 +59,7 @@ You can also point to the location where the tar.gz lives on the web
  $ easy_install URL_package
 ```
 
-Uploading this module to the Python Package Index. At that point you should be able to just type
-
-```console
- $ easy_install py3webfuzz
-```
+You should be able to go.
 
 ## Use in your Code
 - Some test cases can be found within info sub folder
