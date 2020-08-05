@@ -1455,3 +1455,13 @@ class WordlistUserPassword:
                 "pywebfuzz/web/data/fuzzdb/wordlists-user-passwd/faithwriters.txt"
             )
             self.faithwriters = Attack.file_read(location)
+
+
+class Extended:
+    def __init__(self):
+        location = "/web/data/extended/SSTI/ssti-payloads.txt"
+        self.ssti_payloads = Attack.file_read(location)
+
+    def __repr__(self):
+        return f"{self.__class__.__name__} {self.ssti_payloads} "
+
