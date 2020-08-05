@@ -65,7 +65,7 @@ def package_files(directory):
             paths.append(os.path.join('..', path, filename))
     return paths
 
-print(here+'/py3webfuzz/web')
+
 
 extra_files = package_files(here + '/py3webfuzz/web')
 
