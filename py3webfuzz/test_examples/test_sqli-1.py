@@ -12,6 +12,7 @@ if __name__ == "__main__":
     for index, payload in enumerate(extended_payload.ssti_payloads):
         print(f"Payload: {index} Value: {payload}")
 
+
         # Using encoderFuncs you can get different handy encodings to develop exploits
         print(f"SSTI Char Encode: {encoderFuncs.sqlchar_encode(payload)}")
 
