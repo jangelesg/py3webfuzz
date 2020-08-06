@@ -44,7 +44,7 @@ $ cd py3webfuzz/
 You can run the supplied setup.py with the install command
 
 ```console
- $  setup.py install
+ $  python setup.py install
 ```
 
 You can also use easy_install if that's what you do to manage your installed packages
