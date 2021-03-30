@@ -26,7 +26,7 @@ pkginfo==1.5.0.1
 pyasn1==0.4.8
 pycparser==2.20
 pycryptodomex==3.9.8
-Pygments==2.6.1
+Pygments==2.7.4
 pyOpenSSL==19.1.0
 pyparsing==2.4.7
 pytz==2020.1
