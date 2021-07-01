@@ -28,19 +28,18 @@ import datetime
 # from getpass import getpass
 import http.server
 # from bs4 import BeautifulSoup
-# import functools
+
 import logging
 import ssl
-
+import urllib3
 import requests
 from impacket import smbserver
 from requests.exceptions import HTTPError, SSLError
-from urllib3.exceptions import InsecureRequestWarning
 
-requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
+urllib3.disable_warnings()
 
 
-def make_request(url, method, **kwargs):
+def make_request(url: str, method: str, **kwargs):
     """
     This provides a convenience function for making requests. This interfaces with requests  which in turn interfaces
     with urllib3 and provides the ability to make GET, POST, PUT, PATCH and DELETE requests.
@@ -51,21 +50,28 @@ def make_request(url, method, **kwargs):
 
     # Checks to ensure that HTTP methods are valid  and header values and postdata are in the appropriate format
 
-    METHODS = "put", "get", "post", "patch", "delete"
+    methods = "put", "get", "post", "patch", "delete"
+    # By default requests interface is enable to create HTTP request
+    request_call = requests
 
     assert (
-            method in METHODS
-    ), f"HTTP Method is not valid in the function, Valid Methods {METHODS}"
+            method in methods
+    ), f"HTTP Method is not valid in the function, Valid Methods {methods}"
 
     def manage_arguments():
-        """This provides a convenience function to manage and select the necessary parameters for the request
         """
+        This provides a convenience function to manage and select the necessary parameters to generate a HTTPS / HTTP requests
+        Object
+         :return a dictionary key values (parameters)
+        """
+        global request_call
 
         parameters = {"url": url}  # Creating parameters starting with the url
-        parameters.update({"verify": False})  # DEFAULT SSL VERIFICATION DISABLE
-        for _ in kwargs.keys():  # Selecting and Adding parameters from arguments
+        for _ in kwargs.keys():  # Selecting and Adding parameters from arguments to create a HTTP request, arguments
             if _ == "headers":
                 parameters.update({"headers": kwargs["headers"]})
+            if _ == "cookies":
+                parameters.update({"cookies": kwargs["cookies"]})
             if _ == "params":
                 parameters.update({"params": kwargs["params"]})
             if _ == "data":
@@ -77,36 +83,27 @@ def make_request(url, method, **kwargs):
             if _ == "proxies":
                 # If proxies parameters is present "verify" Parameter is added equal to "False" to avoid
                 # SSL Certs Error and disable warnings
-                try:
-                    from urllib3.exceptions import InsecureRequestWarning
-                except ImportError as er:
-                    print(f"Import Error Occurred. {er}")
-                else:
-                    # Suppress only the single warning from urllib3 needed.
-                    # requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
-                    parameters.update({"proxies": kwargs["proxies"]})
-                    parameters.update({"verify": False})
-        ''':return a dictionary key values corresponding to HTTP request '''
+                parameters.update({"proxies": kwargs["proxies"]})
+                parameters.update({"verify": False})  # DEFAULT SSL VERIFICATION DISABLE
+            if _ == "session_req" and kwargs["session_req"] is True:  #
+                with requests.Session() as s:
+                    request_call = s
         return parameters
 
     try:
         params = manage_arguments()
-
+        # Selecting an appropriate requests interface based on the method that was selected
         req = {
-            "post": requests.post,  # Selecting the appropriate requests Class Object HTTP method
-            "patch": requests.patch,
-            "put": requests.put,
+            "post": request_call.post,
+            "patch": request_call.patch,
+            "put": request_call.put,
             "get": requests.get,
-            "delete": requests.delete,
+            "delete": request_call.delete,
         }.get(method, lambda: None)
-
-        start = datetime.datetime.now()
-
+        # keyword arguments are packed as a dict and passed to the function for further processing
         response = req(**params)
-
         #  An HTTPError will be raised for certain status codes. If the status code indicates a successful request,
         #  the program will proceed without that exception being raised.
-
         response.raise_for_status()
 
     except HTTPError as http_err:
@@ -119,21 +116,9 @@ def make_request(url, method, **kwargs):
     except SSLError as sslerr:
         print(f"SSLError error occurred: {sslerr}")
         exit(1)
-    else:
-        end = datetime.datetime.now()
-        time = end - start
 
-        # Grab the HTTP Status Code, HTTP Headers, HTTP Content, JSON in case, Time, HTTP TEXT Content, response time
-        # Return a dictionary whit those values
-
-        return {
-            "headers": response.headers,
-            "content": response.content,
-            "status_code": response.status_code,
-            'json': response.json,
-            "text": response.text,
-            "time": f"Total in seconds: {time}",
-        }
+    # Return a response requests
+    return response
 
 
 def generate_range(start, stop, step=1, pre=None, post=None):

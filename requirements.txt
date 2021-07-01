@@ -2,11 +2,11 @@ beautifulsoup4==4.9.1
 bleach==3.1.5
 bs4==0.0.1
 certifi==2020.6.20
-cffi==1.14.0
+cffi==1.14.5
 chardet==3.0.4
 click==7.1.2
 colorama==0.4.3
-cryptography==2.9.2
+cryptography==3.4.7
 DateTime==4.3
 dnspython==1.16.0
 docutils==0.16
@@ -37,8 +37,10 @@ rfc3986==1.4.0
 SecretStorage==3.1.2
 six==1.15.0
 soupsieve==2.0.1
+style==1.1.0
 tqdm==4.47.0
 twine==3.2.0
+update==0.0.1
 urllib3==1.25.9
 webencodings==0.5.1
 Werkzeug==1.0.1
