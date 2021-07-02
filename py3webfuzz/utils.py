@@ -23,11 +23,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>
 """
 
-import datetime
-# from impacket.ntlm import compute_lmhash, compute_nthash
 # from getpass import getpass
 import http.server
-# from bs4 import BeautifulSoup
 
 import logging
 import ssl
@@ -60,9 +57,8 @@ def make_request(url: str, method: str, **kwargs):
 
     def manage_arguments():
         """
-        This provides a convenience function to manage and select the necessary parameters to generate a HTTPS / HTTP requests
-        Object
-         :return a dictionary key values (parameters)
+        This provides a convenience function to manage and select the necessary parameters to generate a HTTPS / HTTP
+        requests Object :return a dictionary key values (parameters)
         """
         global request_call
 
@@ -152,7 +148,7 @@ def generate_range(start, stop, step=1, pre=None, post=None):
 
 
 def replace(func):
-    ''' Handy Function to replace values when developing an exploit '''
+    """ Handy Function to replace values when developing an exploit """
 
     def wrapper(payload, mode, *args):
         print(f"Before {payload}")
@@ -172,7 +168,7 @@ def mutate(payload, mode, *args):
 def https_server(*args):
     # Command line to create a SSL Certificate
     # openssl req -new -x509 -keyout server.pem -out server.pem -days 365 -nodes
-    '''Handy Function to launch a Small HTTPS Server to server files running on Localhost on port 8180'''
+    """Handy Function to launch a Small HTTPS Server to server files running on Localhost on port 8180"""
 
     if len(args) < 2:
         ip = "localhost"
@@ -225,18 +221,18 @@ def http_server(*args):
 
 def smb_server(interface, port, sharePath):
     '''Handy Function to launch a Small SMB Server to server files running on Localhost on py3webfuzz_share'''
-
+    comment = f"Share Folder"
+    shareName = "py3webfuzz_share".upper()
     print(
-        "-:==========" + f" Simple SMB Server on {interface}:{port}" + " ==========:-\n"
+        "-:==========" + f" Simple SMB Server on smb://{interface}:{port}/{shareName} " + "==========:-\n"
     )
     try:
-        comment = f"Share Folder"
-        shareName = "py3webfuzz_share"
+
         logging.getLogger().setLevel(logging.INFO)
         server = smbserver.SimpleSMBServer(
             listenAddress=interface, listenPort=int(port)
         )
-        server.addShare(shareName.upper(), sharePath, comment)
+        server.addShare(shareName, sharePath, comment)
         server.setSMBChallenge("")
         server.setLogFile("")
     except Exception as err:
