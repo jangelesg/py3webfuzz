@@ -51,7 +51,7 @@ def make_request(url: str, method: str, **kwargs):
     # Checks to ensure that HTTP methods are valid  and header values and postdata are in the appropriate format
 
     methods = "put", "get", "post", "patch", "delete"
-    # By default requests interface is enable to create HTTP request
+    #  By default requests interface is enable to create HTTP request
     request_call = requests
 
     assert (
