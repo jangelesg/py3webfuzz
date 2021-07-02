@@ -214,9 +214,7 @@ def http_server(*args):
             "-:==========" + f" Simple HTTP Server on {ip}:{port}" + " ==========:-\n"
         )
         server_address = ip, port
-        httpd = http.server.HTTPServer(
-            server_address, http.server.SimpleHTTPRequestHandler
-        )
+        httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
 
     except Exception as err:
         print(f"{err}")
