@@ -17,7 +17,7 @@ ldapdomaindump==0.9.3
 MarkupSafe==2.0.1
 pyasn1==0.4.8
 pycparser==2.20
-pycryptodomex==3.10.1
+pycryptodomex==3.19.1
 pyOpenSSL==20.0.1
 requests==2.25.1
 six==1.16.0
